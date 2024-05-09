@@ -24,8 +24,19 @@ export class TradeService {
     return this.tradeRepository.save(trade);
   }
 
-  findAll() : Promise<Trade[]>{
-    return this.tradeRepository.find();
+  findAll(type: string, user_id: number) : Promise<Trade[]>{
+    let cond = {};
+    if(type){
+      cond['type'] = type;
+    }
+
+    if(user_id){
+      cond['user_id'] = +user_id;
+    }
+
+    console.log('-- cond --',cond);
+
+    return this.tradeRepository.findBy(cond);
   }
 
   async findOne(id: number) : Promise<any>{
@@ -38,8 +49,13 @@ export class TradeService {
 
   }
 
-  update(id: number, updateTradeDto: UpdateTradeDto) {
+  async update(id: number, updateTradeDto: UpdateTradeDto) {
     
+    let tradedata = await this.findOne(id);
+    if(!tradedata || !tradedata[0]){
+      throw new HttpException('ID not found!', 405);
+    }
+
     let trade:Trade = new Trade();
     trade.id        = id;
     trade.type      = updateTradeDto.type;
@@ -51,13 +67,16 @@ export class TradeService {
 
     let result  = this.tradeRepository.save(trade);
 
-    console.log(result);
-
-
+    //console.log(result);
     return result;
   }
 
-  remove(id: number) {
-    return this.tradeRepository.delete(id);;
+  async remove(id: number) {
+    let result = await this.tradeRepository.delete(id);
+    if(!result['affected']){
+      throw new HttpException('ID not found!', 405);
+    }
+
+    return result;
   }
 }

@@ -1,4 +1,5 @@
 import { IsEnum, IsInt, IsString, Max, Min } from "class-validator";
+import { Timestamp } from "typeorm";
 
 export enum TradeState {
     buy='buy',
@@ -25,7 +26,5 @@ export class CreateTradeDto {
     price: number;
 
     @IsInt()
-    @Min(1500000000000)
-    @Max(2000000000000)
     timestamp: number;
 }
