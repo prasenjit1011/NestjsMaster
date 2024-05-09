@@ -1,3 +1,40 @@
+
+
+Add Trade API <br />
+URL : http://localhost:3000/trade <br />
+
+Payload <br /><br />
+
+{
+    "type": "Sell",
+    "user_id": 1,
+    "symbol": "IRE",
+    "shares": 10,
+    "price": 7050,
+    "timestamp": 1452
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <p align="center">
   <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="200" alt="Nest Logo" /></a>
 </p>
