@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { HttpException, Injectable } from '@nestjs/common';
 import { Repository } from 'typeorm';
 import { InjectRepository } from '@nestjs/typeorm';
 
@@ -29,16 +29,13 @@ export class TradeService {
   }
 
   async findOne(id: number) : Promise<any>{
-    console.log('****', id, typeof(id));
-    let trade =  await this.tradeRepository.findBy({id:id});
 
-    
-    if(trade && trade[0]){
-      return trade[0];
+    let trade =  await this.tradeRepository.findBy({id:id});
+    if(!trade || !trade[0]){
+      throw new HttpException('ID not found!', 404);
     }
-    else{
-      return {"msg":"Trade data not found"};
-    }
+    return trade[0];
+
   }
 
   update(id: number, updateTradeDto: UpdateTradeDto) {
@@ -52,7 +49,12 @@ export class TradeService {
     trade.price     = updateTradeDto.price;
     trade.timestamp = updateTradeDto.timestamp;
 
-    return this.tradeRepository.save(trade);
+    let result  = this.tradeRepository.save(trade);
+
+    console.log(result);
+
+
+    return result;
   }
 
   remove(id: number) {
