@@ -7,6 +7,6 @@ import { Module } from '@nestjs/common';
 })
 export class RootModule {
   constructor(){
-    console.log('-: Root Module :-');
+    console.log('\n-: Root Module Started :-\n\n');
   }
 }
