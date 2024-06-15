@@ -12,6 +12,7 @@ export class Player {
     @Column()
     password: string;
 
-    @Column({ type: 'date' })
+    @Column({ type: 'date', default: () => 'CURRENT_Date' })
     timestamp: Date;
 }
+
