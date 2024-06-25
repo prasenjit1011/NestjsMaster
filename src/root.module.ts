@@ -1,10 +1,12 @@
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { PlayerModule } from './player/player.module';
+import { AuthModule } from './auth/auth.module';
 
 @Module({
   imports: [
     PlayerModule,
+    AuthModule,
     TypeOrmModule.forRoot({
       type: 'postgres',
       host: 'ep-withered-frost-a5etb539.us-east-2.aws.neon.tech',
