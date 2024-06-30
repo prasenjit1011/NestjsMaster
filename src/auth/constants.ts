@@ -1,0 +1,3 @@
+export const jwtConstants = {
+    secret: 'INDIA123INDIA123INDIA123INDIA123INDIA123INDIA123INDIA123',
+};
