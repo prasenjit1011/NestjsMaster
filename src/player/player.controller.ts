@@ -1,4 +1,4 @@
-import { Controller, Get, Post, Body, ValidationPipe } from '@nestjs/common';
+import { Controller, Get, Post, Body, ValidationPipe, Param } from '@nestjs/common';
 import { PlayerService } from './player.service';
 import { CreatePlayerDto } from './dto/create.player.dto';
 
@@ -15,5 +15,11 @@ export class PlayerController {
     @Get()
     findAll(){
         return this.playerService.findAll();
+    }
+
+    @Get(':id')
+    findOne(@Param('id') id: number) {
+        console.log('++++', id, typeof(+id));
+        return this.playerService.findOne(+id);
     }
 }

@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { HttpException, Injectable } from '@nestjs/common';
 import { Repository } from 'typeorm';
 import { InjectRepository } from '@nestjs/typeorm';
 
@@ -22,4 +22,25 @@ export class PlayerService {
         let cond = {};
         return this.playerRepository.findBy(cond);
     }
+
+    async findOne(id: number) : Promise<any>{
+
+        let player =  await this.playerRepository.findBy({id:id});
+        if(!player || !player[0]){
+          throw new HttpException('ID not found!', 404);
+        }
+        return player[0];
+    }
+
+    async findOneByUsername(username: string) : Promise<any>{
+
+      let player =  await this.playerRepository.findBy({username:username});
+      if(!player || !player[0]){
+        throw new HttpException('ID not found!', 404);
+      }
+
+      console.log(player);
+      return player[0];
+  }
+    
 }
