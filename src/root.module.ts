@@ -24,6 +24,6 @@ import { AuthModule } from './auth/auth.module';
 })
 export class RootModule {
   constructor(){
-    console.log('\n-: Root Module Started :-\n\n');
+    console.log('\n-: Root Module Started :-\n\n\n');
   }
 }
