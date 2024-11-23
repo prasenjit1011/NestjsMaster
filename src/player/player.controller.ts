@@ -4,6 +4,7 @@ import { CreatePlayerDto } from './dto/create.player.dto';
 import { AuthGuard } from 'src/auth/auth.guard';
 
 @Controller('player')
+@UseGuards(AuthGuard)
 export class PlayerController {
 
     constructor(private readonly playerService:PlayerService){}
