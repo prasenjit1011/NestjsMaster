@@ -3,6 +3,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { PlayerModule } from './player/player.module';
 import { AuthModule } from './auth/auth.module';
 import { Player } from './player/entity/player.entity';
+import { TeamsModule } from './teams/teams.module';
 
 @Module({
   imports: [
@@ -18,6 +19,7 @@ import { Player } from './player/entity/player.entity';
       entities: [Player],//[__dirname+'/**/*.entity{.ts,.js}']
       synchronize: true,
     }),
+    TeamsModule,
     // TypeOrmModule.forRoot({
     //   type: 'postgres',
     //   host: 'ep-withered-frost-a5etb539.us-east-2.aws.neon.tech',
