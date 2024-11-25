@@ -1,4 +1,4 @@
-import { Controller, Get, Post, Body, ValidationPipe, Param, UseGuards, UseInterceptors, UploadedFile } from '@nestjs/common';
+import { Controller, Get, Post, Request, Body, ValidationPipe, Param, UseGuards, UseInterceptors, UploadedFile } from '@nestjs/common';
 import { PlayerService } from './player.service';
 import { CreatePlayerDto } from './dto/create.player.dto';
 import { AuthGuard } from 'src/auth/auth.guard';
@@ -14,18 +14,18 @@ export class PlayerController {
 
     @Post()
     @UseGuards(AuthGuard)
-    create(@Body(new ValidationPipe()) createPlayerDto: CreatePlayerDto) {
+    create(@Request() req: any, @Body(new ValidationPipe()) createPlayerDto: CreatePlayerDto) {
+        
+        console.log('========>>> Logged User >>', req.user);
         return this.playerService.create(createPlayerDto);
     }
 
     @Post('upload')
     @UseInterceptors(FileInterceptor('file', {
         storage: diskStorage({
-          destination: './uploads'
-          , filename: (req, file, cb) => {
-            // Generating a 32 random chars long string
+          destination: './uploads', 
+          filename: (req, file, cb) => {
             const randomName = Array(32).fill(null).map(() => (Math.round(Math.random() * 16)).toString(16)).join('')
-            //Calling the callback passing the random name generated with the original extension name
             cb(null, `${randomName}${extname(file.originalname)}`)
           }
         })
@@ -37,9 +37,11 @@ export class PlayerController {
     }
     
     @Get()
-    findAll(){
+    findAll(@Request() req: any){
         var str = Math.round(100*Math.random());
         console.log('-: Player List :- '+str+'\n')
+        console.log('==>>>>>', req.user);
+
         return this.playerService.findAll();
     }
 
