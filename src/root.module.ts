@@ -7,6 +7,8 @@ import { TeamsModule } from './teams/teams.module';
 import { Team } from './teams/entities/team.entity';
 import { TournamentsModule } from './tournaments/tournaments.module';
 import { Tournament } from './tournaments/entities/tournament.entity';
+import { VenuesModule } from './venues/venues.module';
+import { Venue } from './venues/entities/venue.entity';
 @Module({
   imports: [
     PlayerModule,
@@ -18,11 +20,12 @@ import { Tournament } from './tournaments/entities/tournament.entity';
       username: 'root',
       password: '',
       database: 'nestjs',
-      entities: [Player, Team, Tournament],//[__dirname+'/**/*.entity{.ts,.js}']
+      entities: [Player, Team, Tournament, Venue],//[__dirname+'/**/*.entity{.ts,.js}']
       synchronize: true,
     }),
     TeamsModule,
     TournamentsModule,
+    VenuesModule,
     // TypeOrmModule.forRoot({
     //   type: 'postgres',
     //   host: 'ep-withered-frost-a5etb539.us-east-2.aws.neon.tech',
