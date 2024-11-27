@@ -1,7 +1,7 @@
 import { Column, Entity, PrimaryGeneratedColumn } from "typeorm";
 
 @Entity()
-export class Venue {
+export class Organizer {
     @PrimaryGeneratedColumn()
     id: number
 
