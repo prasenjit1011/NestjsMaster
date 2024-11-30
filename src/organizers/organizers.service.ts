@@ -19,9 +19,17 @@ export class OrganizersService {
     return this.organizerRepository.save(organizer);
   }
 
-  findAll() {
-    let cond = {};
-    return this.organizerRepository.findBy(cond);
+  async findAll() {
+    let id = 1;
+    //let cond = {};
+    let cond = { 
+      where: { id:1 }, 
+      relations: ['tournaments', 'tournaments.teams'],
+    };
+    //let data = await this.organizerRepository.findBy({});//findOne(cond);
+    //let data = await this.organizerRepository.findOne(cond);
+    let data = await this.organizerRepository.find(cond);
+    return {msg:"Organization List", data:data};
   }
 
   findOne(id: number) {

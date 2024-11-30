@@ -21,9 +21,29 @@ export class TournamentsService {
     return this.tournamentRepository.save(tournament);
   }
 
-  findAll() {
-    return `This action returns all tournaments`;
+  async findAlla() {
+    let cond = {where:{id:1}};
+    let data = [];//await this.tournamentRepository.findBy(cond);
+    return {msg:"Tournament List Data", data:data};
   }
+
+  async findAll(): Promise<Tournament | null> {
+    let id = 1;
+    //const condition = { where: { id } };
+    // const condition = { 
+    //   where: { id }, 
+    //   relations: ['organizer'],
+    // };
+
+    const condition = { 
+      where: { id }, 
+      relations: ['teams'],
+    };
+
+    return await this.tournamentRepository.findOne(condition);
+  }
+
+
 
   findOne(id: number) {
     return `This action returns a #${id} tournament`;

@@ -6,6 +6,13 @@ TypeOrm : Player :
 http://localhost:3000/player
 
 
+Auth,
+
+Organizer->Tournaments->Teams->Player
+Done->Done->WIP
+
+
+
 Command List
 
 $ npm install
@@ -33,10 +40,3 @@ $ npm run test:e2e
 $ npm run test:cov
 ```
 
-
-Auth,
-Player
-  
-Teams
-Tournaments
-organizer

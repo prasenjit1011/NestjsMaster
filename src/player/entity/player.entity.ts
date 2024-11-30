@@ -1,4 +1,5 @@
-import { Column, Entity, PrimaryGeneratedColumn, Timestamp } from "typeorm";
+import { Team } from "src/teams/entities/team.entity";
+import { Column, Entity, ManyToOne, PrimaryGeneratedColumn, Timestamp } from "typeorm";
 
 
 @Entity()
@@ -14,5 +15,8 @@ export class Player {
 
     @Column({ type: 'date', default: () => 'CURRENT_Date' })
     timestamp: Date;
+
+    @ManyToOne(type => Team)
+    team: Team
 }
 

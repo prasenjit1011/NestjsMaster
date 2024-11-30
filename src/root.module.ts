@@ -9,6 +9,10 @@ import { TournamentsModule } from './tournaments/tournaments.module';
 import { Tournament } from './tournaments/entities/tournament.entity';
 import { OrganizersModule } from './organizers/organizers.module';
 import { Organizer } from './organizers/entities/organizer.entity';
+import { Student } from './teams/entities/student.entity';
+import { Course } from './teams/entities/student.entity';
+//import { StudentCourse } from './teams/entities/student.entity';
+
 @Module({
   imports: [
     PlayerModule,
@@ -20,7 +24,8 @@ import { Organizer } from './organizers/entities/organizer.entity';
       username: 'root',
       password: '',
       database: 'nestjs',
-      entities: [Player, Team, Tournament, Organizer],//[__dirname+'/**/*.entity{.ts,.js}']
+      entities: [Player, Team, Tournament, Organizer, Student, Course ],
+      //entities: [__dirname+'/**/*.entity{.ts,.js}'],
       synchronize: true,
     }),
     TeamsModule,

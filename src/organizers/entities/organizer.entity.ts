@@ -1,4 +1,5 @@
-import { Column, Entity, PrimaryGeneratedColumn } from "typeorm";
+import { Tournament } from "src/tournaments/entities/tournament.entity";
+import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from "typeorm";
 
 @Entity()
 export class Organizer {
@@ -10,4 +11,7 @@ export class Organizer {
 
     @Column()
     status: string
+
+    @OneToMany(type=> Tournament, tournament => tournament.organizer)
+    tournaments: Tournament[]
 }

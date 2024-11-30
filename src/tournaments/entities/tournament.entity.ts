@@ -1,4 +1,6 @@
-import { Entity, Column, PrimaryGeneratedColumn } from "typeorm"
+import { Organizer } from "src/organizers/entities/organizer.entity"
+import { Team } from "src/teams/entities/team.entity"
+import { Entity, Column, PrimaryGeneratedColumn, ManyToOne, OneToMany } from "typeorm"
 
 @Entity()
 export class Tournament {
@@ -16,4 +18,16 @@ export class Tournament {
 
     @Column()
     status:string
+
+    @ManyToOne(type => Organizer)
+    organizer: Organizer
+
+
+    @OneToMany(type=> Team, team => team.tournament)
+    teams: Team[]
+
+
+    // @OneToMany(type=> Tournament, tournament => tournament.organizer)
+    // tournaments: Tournament[]
+
 }
