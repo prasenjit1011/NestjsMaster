@@ -15,3 +15,12 @@ export class Organizer {
     @OneToMany(type=> Tournament, tournament => tournament.organizer)
     tournaments: Tournament[]
 }
+
+//Organizer => ICC, BCCI, ACB, SLC, ECB etc
+//Tournaments => WorldCup, T20, AsiaCup etc 
+//Teams => India, Australia, WestIndies etc
+//Player => Player1, Player2, Player3 etc
+//PlayerDetails => DOB, Score, 
+
+//Category => Bowler, Batman
+//

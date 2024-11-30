@@ -26,8 +26,4 @@ export class Tournament {
     @OneToMany(type=> Team, team => team.tournament)
     teams: Team[]
 
-
-    // @OneToMany(type=> Tournament, tournament => tournament.organizer)
-    // tournaments: Tournament[]
-
 }
