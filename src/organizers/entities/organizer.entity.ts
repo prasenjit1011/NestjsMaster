@@ -22,5 +22,7 @@ export class Organizer {
 //Player => Player1, Player2, Player3 etc
 //PlayerDetails => DOB, Score, 
 
-//Category => Bowler, Batman
-//
+//Category => Bowler, Batsman, GoodFielder, WicketKeeper, Captain
+//Player => Player1, Player2, Player3 etc
+//Player_Category => Player1 (Bowler, Batsman, GoodFielder)
+//Category_player => Bowler ( Player1, Player2, Player3 ), Batsman ( Player2, Player3 ), Captain ( Player1 )
