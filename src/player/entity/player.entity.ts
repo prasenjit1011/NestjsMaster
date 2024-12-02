@@ -1,5 +1,6 @@
+import { Category } from "src/category/entities/category.entity";
 import { Team } from "src/teams/entities/team.entity";
-import { Column, Entity, ManyToOne, PrimaryGeneratedColumn, Timestamp } from "typeorm";
+import { Column, Entity, JoinColumn, ManyToOne, PrimaryGeneratedColumn, Timestamp } from "typeorm";
 
 
 @Entity()
@@ -13,10 +14,17 @@ export class Player {
     @Column()
     password: string;
 
+    @Column()
+    profilepic: string;
+
     @Column({ type: 'date', default: () => 'CURRENT_Date' })
     timestamp: Date;
 
     @ManyToOne(type => Team)
-    team: Team
+    team: Team;
+
+    @ManyToOne(type => Category)
+    //@JoinColumn({ name: 'catId' })
+    category: Category;
 }
 

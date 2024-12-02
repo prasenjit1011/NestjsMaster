@@ -13,6 +13,7 @@ import { StudentCourse } from './entities/student.entity';
   imports: [TypeOrmModule.forFeature([Team])],
   controllers: [TeamsController],
   providers: [TeamsService],
-  exports: [TeamsService],
+  exports: [TeamsService, TypeOrmModule.forFeature([Team])],
+
 })
 export class TeamsModule {}

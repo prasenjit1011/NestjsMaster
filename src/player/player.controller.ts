@@ -13,7 +13,7 @@ export class PlayerController {
     constructor(private readonly playerService:PlayerService){}
 
     @Post()
-    @UseGuards(AuthGuard)
+    //@UseGuards(AuthGuard)
     create(@Request() req: any, @Body(new ValidationPipe()) createPlayerDto: CreatePlayerDto) {
         
         console.log('========>>> Logged User >>', req.user);

@@ -12,6 +12,8 @@ import { Organizer } from './organizers/entities/organizer.entity';
 import { Student } from './teams/entities/student.entity';
 import { Course } from './teams/entities/student.entity';
 //import { StudentCourse } from './teams/entities/student.entity';
+import { CategoryModule } from './category/category.module';
+import { Category } from './category/entities/category.entity';
 
 @Module({
   imports: [
@@ -24,13 +26,14 @@ import { Course } from './teams/entities/student.entity';
       username: 'root',
       password: '',
       database: 'nestjs',
-      entities: [Player, Team, Tournament, Organizer, Student, Course ],
+      entities: [Category, Player, Team, Tournament, Organizer, Student, Course ],
       //entities: [__dirname+'/**/*.entity{.ts,.js}'],
       synchronize: true,
     }),
     TeamsModule,
     TournamentsModule,
     OrganizersModule,
+    CategoryModule,
     // TypeOrmModule.forRoot({
     //   type: 'postgres',
     //   host: 'ep-withered-frost-a5etb539.us-east-2.aws.neon.tech',
