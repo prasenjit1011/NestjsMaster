@@ -10,6 +10,7 @@ import { Store } from './store/entities/store.entity';
 import { Product } from './product/entities/product.entity';
 import { Productdetail } from './productdetail/entities/productdetail.entity';
 import { Customer } from './customer/entities/customer.entity';
+import { MerchantModule } from './merchant/merchant.module';
 
 @Module({
   imports: [
@@ -25,6 +26,7 @@ import { Customer } from './customer/entities/customer.entity';
       //entities: [__dirname+'/**/*.entity{.ts,.js}'],
       synchronize: true,
     }),
+    MerchantModule,
   ],
   controllers: [],
   providers: [],
