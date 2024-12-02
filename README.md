@@ -43,3 +43,6 @@ ProductDetail
     "spec": false
 },
 
+### Package List
+
+npm install @nestjs/typeorm typeorm mysql2
