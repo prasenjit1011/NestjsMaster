@@ -14,6 +14,8 @@ import { Course } from './teams/entities/student.entity';
 //import { StudentCourse } from './teams/entities/student.entity';
 import { CategoryModule } from './category/category.module';
 import { Category } from './category/entities/category.entity';
+import { MyteamsModule } from './admin/myteams/myteams.module';
+import { MyproductModule } from './admin/myproduct/myproduct.module';
 
 @Module({
   imports: [
@@ -34,6 +36,8 @@ import { Category } from './category/entities/category.entity';
     TournamentsModule,
     OrganizersModule,
     CategoryModule,
+    MyteamsModule,
+    MyproductModule,
     // TypeOrmModule.forRoot({
     //   type: 'postgres',
     //   host: 'ep-withered-frost-a5etb539.us-east-2.aws.neon.tech',
