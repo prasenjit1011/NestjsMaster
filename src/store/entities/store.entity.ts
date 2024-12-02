@@ -7,4 +7,7 @@ export class Store {
 
     @Column()
     name: string;
+
+    @Column()
+    contactus: string;
 }
