@@ -1,8 +1,15 @@
-import { Column, Entity, PrimaryGeneratedColumn } from "typeorm";
+import { Product } from "src/product/entities/product.entity";
+import { Column, Entity, OneToOne, PrimaryGeneratedColumn } from "typeorm";
 @Entity('tbl_productdetail')
 export class Productdetail {
     @PrimaryGeneratedColumn()
     id:number;
 
     @Column()
-    name: string;}
+    name: string;
+
+    // One-to-one relationship with Product
+    @OneToOne(() => Product, (product) => product.details)
+    product: Product;
+
+}
