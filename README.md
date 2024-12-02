@@ -25,11 +25,16 @@ npm run test:cov
 
 
 
-
-
 ### One to Many
 Merchant
 Store
+
+### Many to Many 
+@ManyToMany(() => Product, (product) => product.stores)
+@JoinTable({name: 'tbl_store_product'})
+Store
+Product
+
 
 ### Many to Many
 Product
