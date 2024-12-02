@@ -1,32 +1,43 @@
 
 ## NestJS Master Branch
+npm install
 
-$ npm install
-```
+### development
+npm run start
 
-## Running the app
+### watch mode
+npm run start:dev
 
-```bash
-# development
-$ npm run start
+### production mode
+npm run start:prod
 
-# watch mode
-$ npm run start:dev
-
-# production mode
-$ npm run start:prod
-```
-
-## Test
-
-```bash
-# unit tests
-$ npm run test
+### Test
+npm run test
 
 # e2e tests
-$ npm run test:e2e
+npm run test:e2e
 
-# test coverage
-$ npm run test:cov
-```
+### test coverage
+npm run test:cov
+
+
+## Module List
+
+
+### One to Many & Many to One
+Store
+Product
+Image
+
+### Many to Many
+Customer
+Product
+
+### One to One
+Product
+ProductDetail
+
+
+
+
 
