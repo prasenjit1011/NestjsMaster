@@ -1,4 +1,5 @@
-import { Column, Entity, PrimaryGeneratedColumn } from "typeorm";
+import { Store } from "src/store/entities/store.entity";
+import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from "typeorm";
 
 @Entity('tbl_merchant')
 export class Merchant {
@@ -7,4 +8,8 @@ export class Merchant {
 
     @Column()
     name: string;
+
+    // One Merchant can have many Stores
+    @OneToMany(() => Store, (store) => store.merchant)
+    stores: Store[];
 }

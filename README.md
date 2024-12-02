@@ -27,7 +27,7 @@ npm run test:cov
 
 
 
-### One to Many & Many to One
+### One to Many
 Merchant
 Store
 
