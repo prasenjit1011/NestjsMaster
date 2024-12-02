@@ -6,7 +6,7 @@ export class Productdetail {
     id:number;
 
     @Column()
-    name: string;
+    description: string;
 
     // One-to-one relationship with Product
     @OneToOne(() => Product, (product) => product.details)

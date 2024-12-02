@@ -57,3 +57,8 @@ ProductDetail
 ### Package List
 
 npm install @nestjs/typeorm typeorm mysql2
+npm install class-validator class-transformer
+
+
+### Store Logo Upload
+### Store Auth implement
