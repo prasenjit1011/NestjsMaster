@@ -38,6 +38,8 @@ Product
 ProductDetail
 
 
-
-
+### Add in nest-cli.json, to stop generate spec file
+"generateOptions": {
+    "spec": false
+},
 
