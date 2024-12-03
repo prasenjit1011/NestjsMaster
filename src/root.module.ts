@@ -15,7 +15,7 @@ import { Merchant } from './merchant/entities/merchant.entity';
 
 @Module({
   imports: [
-    StoreModule, ProductModule, CustomerModule, ProductdetailModule,
+    MerchantModule, StoreModule, ProductModule, ProductdetailModule, CustomerModule,
     TypeOrmModule.forRoot({
       type: 'mysql',
       host: 'localhost',
@@ -27,7 +27,6 @@ import { Merchant } from './merchant/entities/merchant.entity';
       //entities: [__dirname+'/**/*.entity{.ts,.js}'],
       synchronize: true,
     }),
-    MerchantModule,
   ],
   controllers: [],
   providers: [],

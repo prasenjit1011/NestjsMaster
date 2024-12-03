@@ -58,7 +58,42 @@ ProductDetail
 
 npm install @nestjs/typeorm typeorm mysql2
 npm install class-validator class-transformer
+nest g resource merchant
 
 
 ### Store Logo Upload
 ### Store Auth implement
+
+
+
+enable window 
+Trun window feature on / off
+Window subsystem for Linux
+
+ctrl+shift+esc
+Perforamance -> Enable Virtualization
+
+docker pull centos:7
+docker images
+docker run -it --name fm centos:7
+docker run -dit --name fm centos:7
+
+docker ps
+docker ps -a
+ipconfig enp0s3
+npm i net-tolls -y
+pwd
+docker start fm 
+docker attach fm
+ctrl + P + Q
+
+docker stop fm
+docker rm fm
+docker rmi centos
+docker rm -f fm
+docker rm $(docker ps -a -q)
+npm i httpd -y
+docker commit fm fimage
+docker commit fm fimage:v1
+docker run -it fimage
+docker cp fm fim:/
