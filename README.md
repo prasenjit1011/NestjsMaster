@@ -58,7 +58,7 @@ ProductDetail
 
 npm install @nestjs/typeorm typeorm mysql2
 npm install class-validator class-transformer
-nest g resource merchant
+nest g resource user
 
 
 ### Store Logo Upload
