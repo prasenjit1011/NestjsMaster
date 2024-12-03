@@ -20,6 +20,7 @@ export class MerchantService {
 
   async findAll() {
     let cond = {};
+    cond = {relations:['stores']};
     let data = await this.merchantRepository.find(cond);
     return {msg: `This action returns all merchant`, data};
   }
