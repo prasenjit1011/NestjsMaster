@@ -3,13 +3,15 @@ import { ProductService } from './product.service';
 import { CreateProductDto } from './dto/create-product.dto';
 import { UpdateProductDto } from './dto/update-product.dto';
 
+import { ProductdetailService } from 'src/productdetail/productdetail.service';
+import { CreateProductdetailDto } from 'src/productdetail/dto/create-productdetail.dto';
 @Controller('product')
 export class ProductController {
   constructor(private readonly productService: ProductService) {}
 
   @Post()
-  create(@Body() createProductDto: CreateProductDto) {
-    return this.productService.create(createProductDto);
+  create(@Body() createProductDto: CreateProductDto, @Body() createProductdetailDto: CreateProductdetailDto) {
+    return this.productService.create(createProductDto, createProductdetailDto);
   }
 
   @Get()

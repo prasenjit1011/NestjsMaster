@@ -12,8 +12,8 @@ export class Product {
     name: string;
 
     // One-to-one relationship with ProductDetails
+    // @JoinColumn() // Specifies that this is the owning side of the relationship
     @OneToOne(() => Productdetail, (productDetails) => productDetails.product)
-    @JoinColumn() // Specifies that this is the owning side of the relationship
     details: Productdetail;
 
 
