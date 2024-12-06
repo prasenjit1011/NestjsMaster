@@ -9,6 +9,7 @@ import { CreateProductdetailDto } from 'src/productdetail/dto/create-productdeta
 
 @Module({
   imports: [TypeOrmModule.forFeature([Product]), ProductdetailModule, CreateProductdetailDto],
+  exports: [TypeOrmModule.forFeature([Product])],
   controllers: [ProductController],
   providers: [ProductService, CreateProductdetailDto],
 })

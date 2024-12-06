@@ -21,8 +21,8 @@ export class Product {
     @ManyToMany(() => Store, (store) => store.products)
     stores: Store[];
 
-    @ManyToMany(() => Customer, (customer) => customer.products)
-    customers: Customer[];
+    @ManyToMany(() => Customer, (customer) => customer.likedProduct)
+    likedByCustomer: Customer[];
 
 
 

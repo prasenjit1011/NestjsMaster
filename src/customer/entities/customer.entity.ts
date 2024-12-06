@@ -13,19 +13,19 @@ export class Customer {
     mobile: number;
 
     // Many-to-many relationship with Product
-    @ManyToMany(() => Product, (product) => product.stores)
+    @ManyToMany(() => Product, (product) => product.likedByCustomer)
     @JoinTable({
-        name: 'tbl_customer_product',  // Custom join table name
+        name: 'tbl_customer_product',
         joinColumn: {
-          name: 'customer_id',   // Custom column name for the Store entity in the join table
-          referencedColumnName: 'id', // Reference column in the Store entity
+          name: 'customerId',
+          referencedColumnName: 'id',
         },
         inverseJoinColumn: {
-          name: 'product_id', // Custom column name for the Product entity in the join table
-          referencedColumnName: 'id', // Reference column in the Product entity
+          name: 'productId',
+          referencedColumnName: 'id',
         },
-    }) // Specifies that this is the owning side of the relationship
-    products: Product[];
+    })
+    likedProduct: Product[];
 
 
 }

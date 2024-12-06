@@ -39,7 +39,7 @@ export class ProductService {
   }
 
   async findAll() {
-    let cond = {relations:['details']};
+    let cond = {relations:['details', 'customers']};
     let data = await this.productRepository.find(cond);
     return {msg:`This action returns all product`, data};
   }

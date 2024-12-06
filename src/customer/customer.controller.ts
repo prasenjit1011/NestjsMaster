@@ -2,7 +2,7 @@ import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/commo
 import { CustomerService } from './customer.service';
 import { CreateCustomerDto } from './dto/create-customer.dto';
 import { UpdateCustomerDto } from './dto/update-customer.dto';
-import { CreateCustomerProductDto } from './dto/create-customer-product.dto';
+import { LikeDataDto } from './dto/likedata.dto';
 
 @Controller('customer')
 export class CustomerController {
@@ -34,8 +34,7 @@ export class CustomerController {
   }
 
   @Post('product/wishlist')
-  createCustomerProduct(@Body() createCustomerProductDto:CreateCustomerProductDto){
-    return this.customerService.createCustomerProduct(createCustomerProductDto);
-    //return this.
+  createCustomerProduct(@Body() likeDataDto:LikeDataDto){
+    return this.customerService.createCustomerProduct(likeDataDto);
   }
 }
