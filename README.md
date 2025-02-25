@@ -33,50 +33,12 @@ npm run start:prod
 
 # unit tests
 npm run test
-
 # e2e tests
 npm run test:e2e
-
 # test coverage
 npm run test:cov
 
 ```
-
-
-```bash
-```
-
-enable window 
-Trun window feature on / off
-Window subsystem for Linux
-
-ctrl+shift+esc
-Perforamance -> Enable Virtualization
-
-docker pull centos:7
-docker images
-docker run -it --name fm centos:7
-docker run -dit --name fm centos:7
-
-docker ps
-docker ps -a
-ipconfig enp0s3
-npm i net-tolls -y
-pwd
-docker start fm 
-docker attach fm
-ctrl + P + Q
-
-docker stop fm
-docker rm fm
-docker rmi centos
-docker rm -f fm
-docker rm $(docker ps -a -q)
-npm i httpd -y
-docker commit fm fimage
-docker commit fm fimage:v1
-docker run -it fimage
-docker cp fm fim:/
 
 
 
@@ -135,6 +97,46 @@ npm install --save @nestjs/typeorm typeorm mysql2
 
 ```
 
+
+
+```bash
+
+
+enable window 
+Trun window feature on / off
+Window subsystem for Linux
+
+ctrl+shift+esc
+Perforamance -> Enable Virtualization
+
+docker pull centos:7
+docker images
+docker run -it --name fm centos:7
+docker run -dit --name fm centos:7
+
+docker ps
+docker ps -a
+ipconfig enp0s3
+npm i net-tolls -y
+pwd
+docker start fm 
+docker attach fm
+ctrl + P + Q
+
+docker stop fm
+docker rm fm
+docker rmi centos
+docker rm -f fm
+docker rm $(docker ps -a -q)
+npm i httpd -y
+docker commit fm fimage
+docker commit fm fimage:v1
+docker run -it fimage
+docker cp fm fim:/
+
+```
+
+
 ```bash
 
 ======
@@ -161,38 +163,66 @@ wsl --install
 wsl -l -v 
 
 ```
+
 ## Docker CMD List
-### Start Docker Desktop as Administrator
-### CMD : Check docker status : docker --version
-### CMD : Pull docker image : docker pull nginx ( ubuntu, centos )
-### CMD : Run docker image : docker run nginx
-### CMD : Run docker image in deattached mode : docker run -d nginx
+
+```bash
+# Step 01 : Start Docker Desktop as Administrator
+# Check docker status : 
+docker --version
+# Pull docker images ubuntu, centos, nginx .... 
+docker pull nginx
+# Run docker image : 
+docker run nginx
+### CMD : Run docker image in deattached mode : 
+docker run -d nginx
 ### **  : It create docker container
 
-### CMD : Running Container List    : docker ps / docker container ls -a
-### CMD : Available Container List  : docker ps -a
-### CMD : Delete unsed container / image  : docker container prune / docker image prune
+### CMD : Running Container List    : 
+docker ps
+docker container ls -a
 
-### CMD : Restart Container : docker start/stop mynginx
-### CMD : Remove Container  : docker remove mynginx
-### CMD : Docker with port binding : 
-### docker run -d --rm --name -p 8080:80  mynginx nginx
+# Available Container List  : 
+docker ps -a
 
-### CMD : Docker Log File : docker logs -f mynginx
-### CMD : Container config check : docker inspect mynginx
-### CMD : GoTo inside of container : docker exec -it mynginx bash
-### CMD : docker run --name rpn-web-3 --cap-add=NET_ADMIN -it -net rpn-network -d httpd
+# Delete unsed container / image  : 
+docker container prune
+docker image prune
 
-### CMD : Ping to container with name ( != ip ) :  nslookup jenkins
-### CMD : netstat -ntplu / -ntpl
-### CMD : iptables-save 
-### CMD : iptables-legacy-save
-### CMD : docker run --name rpn-webserver -p 80:80 --net rpn-network -d httpd 
-### CMD : docker container exec -it rpn-webserver /bin/bash
-### CMD : What port are exposed publicly : docker port rpn-webserver 
-### CMD : docker container ls | grep rpn-webserver
-### CMD : docker build -t rpn-image:v1 .
-### CMD : docker images | grep rpn-image
+# Restart Container
+docker start mynginx
+docker stop mynginx
+
+# Remove Container  : 
+docker remove mynginx
+
+# Docker with port binding : 
+docker run -d --rm --name -p 8080:80  mynginx nginx
+
+### CMD : Docker Log File : 
+docker logs -f mynginx
+
+### CMD : Container config check : 
+docker inspect mynginx
+
+### CMD : GoTo inside of container : 
+docker exec -it mynginx bash
+
+### CMD : 
+docker run --name rpn-web-3 --cap-add=NET_ADMIN -it -net rpn-network -d httpd
+
+### CMD : Ping to container with name ( != ip ) :  
+nslookup jenkins
+
+netstat -ntplu / -ntpl
+iptables-save 
+iptables-legacy-save
+docker run --name rpn-webserver -p 80:80 --net rpn-network -d httpd 
+docker container exec -it rpn-webserver /bin/bash
+What port are exposed publicly : docker port rpn-webserver 
+docker container ls | grep rpn-webserver
+docker build -t rpn-image:v1 .
+docker images | grep rpn-image
 
 
 ### Important
@@ -206,13 +236,18 @@ wsl -l -v
 ### Create container from Custom/Local rpn-myimg : docker run --name rpn-newweb -it myimg /bin/bash
 ### docker save -o /home/ubuntu/rpn-myimg.tar rpn-myimg
 
-### Push image to docker hub: docker image tag rpn-myimg tester/rpn-myimg:v1
-### Push image to docker hub: docker push tester/rpn-myimg:v1
+### Push image to docker hub: 
+docker image tag rpn-myimg tester/rpn-myimg:v1
+### Push image to docker hub: 
+docker push tester/rpn-myimg:v1
 
 ### Docker compose
-### Remove unused network : docker network prune
-### docker-compose -v
-### apt instal;l docker-compose
+### Remove unused network : 
+docker network prune
+docker-compose -v
+### apt install docker-compose
+
+```
 
 ```bash
 
@@ -239,20 +274,28 @@ networks:
   rpn-network: 
 volumes:
   rpn-volume:
+
 ### docker-compose.yml : Completed
-### CMD : Syntax check of .yml : docker-compose config
-### CMD : Create container from multiple image(httpd, redis) of docker-compose.yml : docker-compose up -d
-### CMD : docker-compose up -d / docker-compose down
-### CMD : docker-compose up -d --scale rpn-db=5
+
+
+```bash
+
+
+### CMD : Syntax check of .yml : 
+docker-compose config
+### CMD : Create container from multiple image(httpd, redis) of docker-compose.yml : 
+docker-compose up -d
+docker-compose down
+docker-compose up -d --scale rpn-db=5
 
 
 ## Docker CMD List
 ## Docker Redis : 
-### Start Docker Desktop as Administrator
-### CMD : Check docker status : docker --version
+## Start Docker Desktop as Administrator
+## CMD : Check docker status : docker --version
 ## docker pull redis:alpine
 ## docker run -it -p 6379:6379 -d --name redis-server redis:alpine
-## NodeJS Project :  npm i redis
+## NodeJS Project : npm i redis
 ## express version : 4.17.1
 ## redis version : 3.0.2
 
@@ -262,29 +305,32 @@ volumes:
 ### Network
 ### CMD : ifconfig / ip a s
 ### docker0 : eth0 : lo ?
-### CMD : docker network inspect bridge 
-### CMD : docker run --name rpn-web -d httpd
-### CMD : docker run --name rpn-db -c MYSQL_ROOT_PASSWORD=rpnpwd -d mysql
-### CMD : docker network inspect bridge 
-### CMD : brctl show
+### CMD : 
+docker network inspect bridge 
+docker run --name rpn-web -d httpd
+docker run --name rpn-db -c MYSQL_ROOT_PASSWORD=rpnpwd -d mysql
+docker network inspect bridge 
+brctl show
+
 ### IPADDRESS
 
-### CMD : docker network create rpn-bridge
-### CMD : docker network inspect rpn-bridge
-### CMD : docker network create --subnet 10.7.0.9/16 --gateway 10.7.7.7 rpn-network
-### CMD : docker run --name rpn-web-new --net=rpn-network -d httpd
-### CMD : docker run --name jenkins --net=rpn-network -d jenkins
-### CMD : docker network inspect bridge rpn-network
-### CMD : docker network connect bridge rpn-web-new
-### CMD : nslookup jenkins
-### CMD : cat /etc/resolv.conf
-### CMD : netstat ntplu
+docker network create rpn-bridge
+docker network inspect rpn-bridge
+docker network create --subnet 10.7.0.9/16 --gateway 10.7.7.7 rpn-network
+docker run --name rpn-web-new --net=rpn-network -d httpd
+docker run --name jenkins --net=rpn-network -d jenkins
+docker network inspect bridge rpn-network
+docker network connect bridge rpn-web-new
+nslookup jenkins
+cat /etc/resolv.conf
+netstat ntplu
 
+docker run --name rpn-web-3 --cap-add=NET_ADMIN -it --net rpn-network -d httpd
 
-### CMD : docker run --name rpn-web-3 --cap-add=NET_ADMIN -it --net rpn-network -d httpd
 ### CMD : *** tcp, udp, DNAT, SNAT ? : iptables-legacy-save
 ### CMD : Embedded DNS server
 
+```
 
 
 
@@ -449,56 +495,6 @@ https://www.youtube.com/watch?v=wwNWgG5htxs
 
 
 
-
-## Description
-
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
-
-## Installation
-
-```bash
-$ npm install
-```
-
-## Running the app
-
-```bash
-# development
-$ npm run start
-
-# watch mode
-$ npm run start:dev
-
-# production mode
-$ npm run start:prod
-```
-
-## Test
-
-```bash
-# unit tests
-$ npm run test
-
-# e2e tests
-$ npm run test:e2e
-
-# test coverage
-$ npm run test:cov
-```
-
-## Support
-
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
-
-## Stay in touch
-
-- Author - [Kamil Myśliwiec](https://kamilmysliwiec.com)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
-
-## License
-
-Nest is [MIT licensed](LICENSE).
 
 
 
