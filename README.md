@@ -1,31 +1,32 @@
 
-TypeOrm : Auth :
-http://localhost:3000/auth
-
-TypeOrm : Player :
-http://localhost:3000/player
 
 
-Auth,
+## Nestjs project with MySql database
 
-Organizer->Tournaments->Teams->Player
-Done->Done->WIP
-8331831460
+```bash
 
+# TypeOrm : Auth :
+# http://localhost:3000/auth
 
+# TypeOrm : Player :
+# http://localhost:3000/player
 
-Command List
+# Project Documentation 
+# Module : Auth,
+# Module : Organizer->Tournaments->Teams->Player
 
-$ npm install
+```
 
-# development
-$ npm run start
+## Importaant command list for Nestjs framework
 
-# watch mode
-$ npm run start:dev
+```bash
+## Nestjs setup command
+npm install
 
-# production mode
-$ npm run start:prod
+npm run start
+npm run start:dev
+npm run start:prod
+
 ```
 
 ## Test
