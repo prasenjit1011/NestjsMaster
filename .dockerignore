@@ -1,0 +1,25 @@
+# Ignore node_modules (because it's being installed inside the container)
+node_modules/
+
+# Ignore log files
+*.log
+
+# Ignore Dockerfile (if you don't want it included in the build context)
+Dockerfile
+
+# Ignore .git directory (Git-related files)
+.git/
+
+# Ignore local npm package lock (if you want to rely on package-lock.json in the repo)
+package-lock.json
+
+# Ignore temporary files or directories
+npm-debug.log
+yarn-error.log
+
+# Ignore any IDE or editor-specific folders
+.vscode/
+.idea/
+
+# Ignore environment files (if you have .env files, you might not want to copy them to the container)
+.env

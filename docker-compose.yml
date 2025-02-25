@@ -1,0 +1,41 @@
+services:
+  app:
+    build: .
+    container_name: nestjs05
+    ports:
+      - "3005:3005"  # Maps port 3001 to the host
+    depends_on:
+      - mysql
+    networks:
+      - node-network
+    volumes:
+      - .:/usr/src/app
+
+  mysql:
+    image: mysql:latest
+    container_name: mysql_lnsel_05
+    environment:
+      MYSQL_ROOT_PASSWORD: lnsel
+      MYSQL_DATABASE: mydb01
+    ports:
+      - "3306:3306"
+    networks:
+      - node-network
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    container_name: phpmyadmin_new_05
+    environment:
+      PMA_HOST: mysql
+      PMA_USER: root
+      PMA_PASSWORD: lnsel
+    ports:
+      - "8081:80"
+    depends_on:
+      - mysql
+    networks:
+      - node-network
+
+networks:
+  node-network:
+    driver: bridge
