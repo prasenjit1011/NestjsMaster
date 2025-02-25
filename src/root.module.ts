@@ -16,9 +16,12 @@ import { CategoryModule } from './category/category.module';
 import { Category } from './category/entities/category.entity';
 import { MyteamsModule } from './admin/myteams/myteams.module';
 import { MyproductModule } from './admin/myproduct/myproduct.module';
+import { Employee } from './employees/entities/employee.entity';
+import { EmployeesModule } from './employees/employees.module';
 
 @Module({
   imports: [
+    EmployeesModule,
     // PlayerModule,
     // AuthModule,
     TypeOrmModule.forRoot({
@@ -28,7 +31,7 @@ import { MyproductModule } from './admin/myproduct/myproduct.module';
       username: 'root',
       password: 'lnsel',
       database: 'test',
-      entities: [ ],
+      entities: [ Employee ],
       //entities: [__dirname+'/**/*.entity{.ts,.js}'],
       synchronize: true,
     }),
