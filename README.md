@@ -226,15 +226,24 @@ docker images | grep rpn-image
 
 
 ### Important
-### Create container from ubuntu : docker run --name rpn-web -it ubuntu /bin/bash
-### Create image from container (rpn-web), id f25290 , we can share image with other : docker container --author "Prasenjit" -m "myimg from rpn-web" f25290 rpn-myimg
+### Create container from ubuntu : 
+docker run --name rpn-web -it ubuntu /bin/bash
+### Create image from container (rpn-web), id f25290 , we can share image with other : 
+docker container --author "Prasenjit" -m "myimg from rpn-web" f25290 rpn-myimg
 
-### Container List : docker container ls -a
-### Image List : docker images
 
-### Create container from Global ubuntu : docker run --name rpn-web -it ubuntu /bin/bash
-### Create container from Custom/Local rpn-myimg : docker run --name rpn-newweb -it myimg /bin/bash
-### docker save -o /home/ubuntu/rpn-myimg.tar rpn-myimg
+### Container List : 
+docker container ls -a
+### Image List : 
+docker images
+
+### Create container from Global ubuntu : 
+docker run --name rpn-web -it ubuntu /bin/bash
+
+### Create container from Custom/Local rpn-myimg : 
+docker run --name rpn-newweb -it myimg /bin/bash
+
+docker save -o /home/ubuntu/rpn-myimg.tar rpn-myimg
 
 ### Push image to docker hub: 
 docker image tag rpn-myimg tester/rpn-myimg:v1
@@ -332,6 +341,7 @@ docker run --name rpn-web-3 --cap-add=NET_ADMIN -it --net rpn-network -d httpd
 
 
 
+```bash
 
 FROM ubuntu
 MAINTAINER Prasenjit
@@ -346,6 +356,7 @@ VOLUME /app
 EXPOSE 80/tcp
 EXPOSE 80/udp
 
+```
 
 git push https://token@github.com/prasenjit1011/NodeJSMongoDBMaster.git 
 
@@ -390,6 +401,8 @@ Frontend Section
 
 
 ## Network:
+```bash
+
 ## CMD : docker images
 ## CMD : docker container ls -a
 ifconfig
@@ -502,3 +515,5 @@ nest g resource user
 "generateOptions": {
     "spec": false
 },
+
+```
