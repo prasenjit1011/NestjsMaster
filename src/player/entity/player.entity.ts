@@ -17,8 +17,8 @@ export class Player {
     @Column()
     profilepic: string;
 
-    @Column({ type: 'date', default: () => 'CURRENT_Date' })
-    timestamp: Date;
+    // @Column({ type: 'date', default: () => 'CURRENT_Date' })
+    // timestamp: Date;
 
     @ManyToOne(type => Team)
     team: Team;

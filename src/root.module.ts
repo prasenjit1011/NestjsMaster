@@ -22,8 +22,8 @@ import { EmployeesModule } from './employees/employees.module';
 @Module({
   imports: [
     EmployeesModule,
-    // PlayerModule,
-    // AuthModule,
+    PlayerModule,
+    AuthModule,
     TypeOrmModule.forRoot({
       type: 'mysql',
       host: 'mysql',
@@ -31,14 +31,14 @@ import { EmployeesModule } from './employees/employees.module';
       username: 'root',
       password: 'lnsel',
       database: 'test',
-      entities: [ Employee ],
+      entities: [ Employee, Player, Category, Team, Tournament, Organizer ],
       //entities: [__dirname+'/**/*.entity{.ts,.js}'],
       synchronize: true,
     }),
-    // TeamsModule,
-    // TournamentsModule,
-    // OrganizersModule,
-    // CategoryModule,
+    TeamsModule,
+    TournamentsModule,
+    OrganizersModule,
+    CategoryModule,
     // MyteamsModule,
     // MyproductModule,
     // TypeOrmModule.forRoot({
