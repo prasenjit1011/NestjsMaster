@@ -1,0 +1,38 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type Book {
+  id: Int!
+  title: String!
+  price: Int
+}
+
+type Mobile {
+  id: Int!
+  title: String!
+  price: Int!
+}
+
+type Query {
+  books: [Book!]!
+  mobiles: [Mobile!]!
+  getMobileById(mobileId: Int!): Mobile!
+}
+
+type Mutation {
+  deleteMobileById(mobileId: Int!): String!
+  addMobile(addMobileArgs: AddMobileArgs!): String!
+  updateMobile(updateMobileArgs: UpdateMobileArgs!): String!
+}
+
+input AddMobileArgs {
+  title: String!
+  price: Int!
+}
+
+input UpdateMobileArgs {
+  id: Int!
+  title: String!
+  price: Int!
+}
