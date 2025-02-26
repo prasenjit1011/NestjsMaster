@@ -139,8 +139,10 @@ docker cp fm fim:/
 
 ```bash
 
-======
-=======
+docker push prasenjitaluni/nestjsmaster:step01
+docker tag a18f183084ec prasenjitaluni/nestjsmaster:v1
+docker tag bf728bb327e1 prasenjitaluni/nestjsmaster:v1
+
 
 ```
 
