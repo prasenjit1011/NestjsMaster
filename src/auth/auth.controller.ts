@@ -1,10 +1,27 @@
-import { Controller, Post, Body, UnauthorizedException, BadRequestException } from '@nestjs/common';
+import { Controller, Post, Body, UnauthorizedException, BadRequestException, ConflictException } from '@nestjs/common';
 import { AuthService } from './auth.service';
 import { LoginDto } from './dto/login.dto';
+import { RegisterDto } from './dto/register.dto';
 
 @Controller('auth')
 export class AuthController {
   constructor(private readonly authService: AuthService) {}
+
+  @Post('register')
+  async register(@Body() registerDto: RegisterDto) {
+    try {
+      console.log('Registration attempt for:', registerDto.emailId); // Debug log
+      const result = await this.authService.register(registerDto);
+      console.log('Registration successful for:', registerDto.emailId); // Debug log
+      return result;
+    } catch (error) {
+      console.error('Registration error:', error.message); // Debug log
+      if (error instanceof ConflictException) {
+        throw error;
+      }
+      throw new BadRequestException('Invalid registration request');
+    }
+  }
 
   @Post('login')
   async login(@Body() loginDto: LoginDto) {

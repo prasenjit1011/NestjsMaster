@@ -1,29 +1,25 @@
 import { IsEmail, IsEnum, IsNotEmpty, IsOptional, IsString, MinLength } from 'class-validator';
-import { UserType, UserStatus } from '../schemas/user.schema';
+import { UserType } from '../../users/schemas/user.schema';
 
-export class CreateUserDto {
-  @IsNotEmpty()
+export class RegisterDto {
   @IsString()
+  @IsNotEmpty()
   firstName: string;
 
-  @IsNotEmpty()
   @IsString()
+  @IsNotEmpty()
   lastName: string;
 
-  @IsNotEmpty()
   @IsEmail()
+  @IsNotEmpty()
   emailId: string;
 
-  @IsNotEmpty()
   @IsString()
+  @IsNotEmpty()
   @MinLength(6)
   password: string;
 
   @IsEnum(UserType)
   @IsOptional()
   type?: UserType = UserType.PATIENT;
-
-  @IsEnum(UserStatus)
-  @IsOptional()
-  status?: UserStatus;
 } 
