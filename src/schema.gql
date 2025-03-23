@@ -1,0 +1,38 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+input CreateFaqInput {
+  answer: String!
+  category: String!
+  isActive: Boolean
+  question: String!
+}
+
+type Faq {
+  answer: String!
+  category: String!
+  id: ID!
+  isActive: Boolean!
+  question: String!
+}
+
+type Mutation {
+  createFaq(createFaqInput: CreateFaqInput!): Faq!
+  removeFaq(id: ID!): Boolean!
+  updateFaq(id: ID!, updateFaqInput: UpdateFaqInput!): Faq!
+}
+
+type Query {
+  faq(id: ID!): Faq!
+  faqs: [Faq!]!
+  faqsByCategory(category: String!): [Faq!]!
+}
+
+input UpdateFaqInput {
+  answer: String
+  category: String
+  id: ID!
+  isActive: Boolean
+  question: String
+}
