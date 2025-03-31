@@ -506,6 +506,74 @@ https://www.youtube.com/watch?v=wwNWgG5htxs
 
 
 
+### kubernetes : Administrator
+```bash
+# Install kubernetes :
+# https://www.youtube.com/watch?v=rBeyHDKLVqM
+curl.exe -LO "https://dl.k8s.io/release/v1.32.0/bin/windows/amd64/kubectl.exe"
+# 2)Install Mini kubernetes
+# https://minikube.sigs.k8s.io/docs/start/?arch=%2Fwindows%2Fx86-64%2Fstable%2F.exe+download
+
+## Start Docker 
+minikube start
+minikube status
+minikube dashboard
+
+kubectl create deployment mynginx --image=nginx:latest
+kubectl get deployment
+kubectl get pods
+kubectl expose deployment mynginx --port=80 --type=LoadBalancer
+kubectl get services
+
+minikube service mynginx
+
+
+kubectl describe pods
+kubectl delete deployment mynginx
+kubectl delete deployment myreactapp
+
+## Create Dockerfile
+FROM node 
+WORKDIR /myapp
+COPY . .
+RUN npm install
+EXPOSE 5173
+CMD ["npm", "start"]
+
+##
+docker build -t prasenjitaluni/reactapp:01 .
+docker images
+docker login
+docker push prasenjitaluni/reactapp:01
+
+kubectl create deployment myreactapp --image=prasenjitaluni/reactapp:01
+kubectl expose deployment myreactapp --port=5173 --type=LoadBalancer
+
+kubectl get pods
+kubectl get services
+minikube service myreactapp
+
+kubectl set image deployment myreactapp webapp-demo=prasenjitaluni/reactapp:03
+minikube service myreactapp
+kubectl scale deployment node-app --replicas=4
+
+1.33
+kubectl apply -f mykubectl.yml
+
+docker run -p 27017:27017 -d --name mongodb mongo
+docker pull philippaul/node-mongo-db:01
+docker run -d -p 27017:27017 --network my-net --name mongo mongo
+
+docker run --network my-net -p 3000:3000 --name myapp philippaul/node-mongo-db:01
+
+
+
+
+```
+
+
+
+
 
 
 
