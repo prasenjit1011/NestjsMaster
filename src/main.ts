@@ -21,6 +21,7 @@ async function bootstrap() {
   });
 
   await microservice.listen();
+  console.clear();
   console.log('🚀 Microservice is running on Redis transport at port 6379');
 }
 bootstrap();
