@@ -1,8 +1,13 @@
 import { NestFactory } from '@nestjs/core';
-import { RootModule } from './root.module';
+import { AppModule } from './app.module';
+import { MicroserviceOptions, Transport } from '@nestjs/microservices';
 
 async function bootstrap() {
-  const app = await NestFactory.create(RootModule);
-  await app.listen(3000);
+  const app = await NestFactory.createMicroservice<MicroserviceOptions>(AppModule, {
+    transport: Transport.TCP,
+    options: { port: 3001 },
+  });
+  await app.listen();
+  console.log('🚀 User Service is running on port 3001');
 }
 bootstrap();
